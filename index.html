@@ -1,47 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
-    <script src="js/slidebar.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
     <main>
-        <section class="gallery">
-
-        </section>
-        <section class="view">
-            <div>
-                <img src="" alt="image-selected-project" id="image-selected-project">
-            </div>
-            <div>
-                <h3 id="title-selected-project"></h3>
-                <p id="description-selected-project"></p>
-                <div>
-                    <ul class="links-list">
-                        <li class="links-element"><a href="#">Github</a></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+      <section id="gallery"></section>
+      <section class="view">
+        <div>
+          <img
+            src=""
+            alt="image-selected-project"
+            id="image-selected-project"
+          />
+        </div>
+        <div>
+          <h3 id="title-selected-project"></h3>
+          <p id="description-selected-project"></p>
+          <div>
+            <ul class="links-list">
+              <li class="links-element"><a href="#">Github</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
-<script>
-    
-
+  </body>
+  <script>
     $.ajax({
-        url : 'php/getInfos.php',
-        type : 'GET',
-        async : false,
-        success : function(response) {
-            console.log(response);
+      url: "php/getInfos.php",
+      type: "GET",
+      async: false,
+      success: function (response) {
+        response = JSON.parse(response);
+        if (response.length >= 1) {
+          console.log(response);
+          fillGallery(response);
+        } else {
+          console.log("No data");
         }
-    })
-</script>
+      },
+    });
+
+    function fillGallery(data) {
+      console.log("Enter here");
+      data.forEach((element) => {
+        console.log(element["img"]);
+        var gallery = document.getElementById("gallery");
+        gallery.innerHTML +=
+          "<img class='slide' src='" + element["img"] + "'/>";
+      });
+    }
+  </script>
+  <script src="js/slidebar.js"></script>
 </html>
-
-
