@@ -1,7 +1,8 @@
 {
-    "title" : "Project 2023 08 29",
-    "description" : "Personal project used for my portfolio",
-    "links" : {
-        "github" : "github.com"
-    }
+  "title": "Project 2023 08 29",
+  "img": "projects/exemple/img.jpg",
+  "description": "Personal project used for my portfolio",
+  "links": {
+    "github": "github.com"
+  }
 }

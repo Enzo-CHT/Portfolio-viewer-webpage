@@ -1,14 +1,37 @@
-
-
-
-
 #gallery {
-    display: flex;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .slide {
-    padding: 10px;
-    width: 100px;
-    height: 100px;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  transition: transform 1s, opacity 1s;
+}
+
+.icon-slide {
+  opacity: 0.5;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  transition: transform 1s, opacity 0.5s;
+}
+
+.centered {
+  transform: scale(1.2);
+  order: 2; /* Place the selected item in the middle */
+}
+
+.left {
+  transform: scale(1);
+  order: 3; /* Place the items on the sides */
+}
+.right {
+  transform: scale(1);
+  order: 1; /* Place the items on the sides */
 }
