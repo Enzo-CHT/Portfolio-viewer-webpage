@@ -1,0 +1,33 @@
+.view {
+  position: absolute;
+  background-color: white;
+  border-radius: 2%;
+  top: 25vh;
+  left: 10vh;
+  border-radius: 50px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+ 
+}
+
+.view-width {
+  width: 100vh;
+  height: 35em;
+}
+
+@media (max-width: 100vh) {
+  .view-width {
+    width: 75vh;
+  }
+}
+
+@media (max-width: 50vh) {
+  .view-width {
+    width: 25vh;
+  }
+}
+
+.illustration {
+    width: 200px;
+    height: 200px;
+}
