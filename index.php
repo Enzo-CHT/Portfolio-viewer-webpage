@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/gallery.css" />
   <link rel="stylesheet" href="css/viewpoint.css" />
+  <script src="js/features.js"></script>
 </head>
 
 <body>
@@ -19,24 +20,24 @@
       <input type="button" name="" id="nextBtn" onclick="showSlide(1)" value=">" />
     </div>
     <section id="infos" class="view view-width">
-      <div>
-        <img class="illustration" src="" alt="image-selected-project" id="image-selected-project" />
-      </div>
-      <div>
-        <h3 id="title-selected-project"></h3>
-        <p id="description-selected-project"></p>
-        <div>
-          <ul class="links-list">
 
-          </ul>
-        </div>
+      <img class="illustration" src="" alt="image-selected-project" id="image-selected-project" />
+      <h3 id="title-selected-project"></h3>
+      <div class="description">
+        <p id="description-selected-project"></p>
       </div>
+      <div>
+        <ul id="links-list" class="links-list">
+
+        </ul>
+      </div>
+
 
     </section>
   </main>
 </body>
 
-<script type="text/javascript">
+<script>
   var publicData = // Récupération des infos liés aux projets
     <?php
     $dir = scandir("projects/");
@@ -50,45 +51,8 @@
     print_r(json_encode($response));
     ?>;
 
-
   fillGallery(publicData);
-
-  /**
-   * Fonction d'ajout des images dans la section gallery 
-   */
-  function fillGallery(data) {
-    data.forEach((element) => {
-      var gallery = document.getElementById("gallery");
-      //var view = document.getElementById("view");
-
-      gallery.innerHTML +=
-        "<img class='slide' src='" + element["img"] + "'/>";
-    });
-  }
-
-  showInformations(0)
-
-  function showInformations(index) {
-
-    const project = publicData[index];
-    document.getElementById('image-selected-project').src = project['img'];
-    document.getElementById('title-selected-project').innerHTML = project['title'];
-    document.getElementById('description-selected-project').innerHTML = project['description'];
-
-    const linksObject = project['links'];
-    const linksListElement = document.getElementById('links-list');
-   
-    for (const name in linksObject) {
-      if (linksObject.hasOwnProperty(name)) {
-        const value = linksObject[name];
-        const link = "<li class='links-element'><a href='${value}'>${name}</a></li>";
-        linksListElement.innerHTML += link;
-      }
-    }
-
-   
-
-  }
+  showInformations(0);
 </script>
 <script src="js/slidebar.js"></script>
 

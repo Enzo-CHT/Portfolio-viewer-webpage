@@ -1,40 +1,35 @@
-
 .img-container {
   display: flex;
   position: relative;
-  padding: 1%;
+  padding: 0.5%;
 
   margin: center;
   align-items: center;
 
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
-
 
   background-color: rgb(240, 240, 240);
   border-radius: 10px;
 
-
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+
 }
 
 .img-container-width {
   max-width: 100vh;
 }
 
-@media (max-width : 100vh) {
+@media (max-width: 100vh) {
   .img-container-width {
     max-width: 50vh;
   }
 }
-@media (max-width : 50vh) {
+@media (max-width: 50vh) {
   .img-container-width {
     max-width: 25vh;
   }
 }
-
-
-
 
 .slide {
   border-radius: 20px;
