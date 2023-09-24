@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/gallery.css" />
   <link rel="stylesheet" href="css/viewpoint.css" />
   <script src="js/features.js"></script>
+  <script src="js/slidebar.js"></script>
 </head>
 
 <body>
@@ -43,17 +44,28 @@
     $dir = scandir("projects/");
     $response = array();
     for ($i = 2; $i < sizeof($dir); $i++) {
-      $uri = "projects/" . $dir[$i];
-      $json_data = file_get_contents($uri . "/infos.json");
-      $response[] = json_decode($json_data, true);
+      try {
+        $uri = "projects/" . $dir[$i];
+        $json_data = @file_get_contents($uri . "/infos.json");
+      } catch (Exception $e) {
+        echo "info.json not found";
+      }
+
+      $decoded_data = json_decode($json_data, true);
+      if ($decoded_data !== null) {
+        $response[] = $decoded_data;
+      }
     }
 
     print_r(json_encode($response));
     ?>;
 
   fillGallery(publicData);
-  showInformations(0);
+ 
+  
+
+
+
 </script>
-<script src="js/slidebar.js"></script>
 
 </html>

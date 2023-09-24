@@ -36,13 +36,29 @@ h3 {
 .illustration {
   position: relative;
   padding: 2% 0 0 2%;
-  border-radius: 10px;
   width: 250px;
   height: 250px;
 }
 
 .description {
   position: relative;
+  left: 10%;
+}
+
+.links-list {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin: auto;
+  left: -70px;
+  top: 100px;
+  width: 30%;
+
+}
+
+.links-list .links-element {
+  list-style-type: none;
+  padding: 0 5% 0 5%;
 }
 
 
@@ -53,6 +69,18 @@ h3 {
     left: 8%;
     width: 75vh;
   }
+
+  .links-list {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    margin: auto;
+    left: -50px;
+    top: 100px;
+    width: 30%;
+  
+  }
+  
 }
 
 
@@ -62,12 +90,12 @@ h3 {
     font-family: Arimo;
     font-weight: 600;
     font-size: 22px;
-
+    
     display: flex;
     position: relative;
 
     top: 0em;
-    left: 0.5em;
+    left: 10%;
   }
 
 
@@ -78,40 +106,23 @@ h3 {
   .illustration {
     position: relative;
     margin: 10px 0 10px 0;
-    border-radius: 10px; 
+
     width: 250px;
     height: 250px;
     left: 6em;
   }
-}
 
-
-/** TAILLE EN DESSOUS DE 50VH **/
-@media (max-width: 50vh) {
-  h3 {
-    font-family: Arimo;
-    font-weight: 600;
-    font-size: 18px;
-
+  .links-list {
     display: flex;
     position: relative;
-
-    top: 0em;
-    left: 0.5em;
+    justify-content: space-between;
+    margin: auto;
+    left: -80px;
+    top: 100px;
+    width: 30%;
+  
   }
+  
 
-  .view-width {
-    left: 5vh;
-    width: 40vh;
-  }
-
-  .illustration {
-    position: relative;
-    border-radius: 10px;
-    margin: 10px 0 10px 0;
-    width: 200px;
-    height: 200px;
-
-    left: 5em;
-  }
 }
+

@@ -18,25 +18,25 @@ function showSlide(way = 0) {
     }
     slides[i].id = "";
   }
-  
+
   var next = index + way;
   if (next > slides.length - 1) {
     next = 0;
   } else if (next < 0) {
     next = slides.length - 1;
   }
-  
+
   for (var i = 0; i < slides.length; i++) {
     // Tous les slides sont des icon par défaut
-    
+
     slides[i].classList.remove("left");
     slides[i].classList.remove("right");
     slides[i].classList.remove("centered");
-    slides[i].setAttribute('onclick', 'showInformations('+i+');'); // Add the onclick attribute here
-    
-    
+    slides[i].setAttribute('onclick', ''); // Add the onclick attribute here
+
+
     if (i < next) {
-    
+
       // Si avant le slide selectionner
       slides[i].classList.add("right");
     } else if (i > next) {
@@ -53,5 +53,6 @@ function showSlide(way = 0) {
 
 
   }
+
 }
 

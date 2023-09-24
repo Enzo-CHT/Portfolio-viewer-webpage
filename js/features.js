@@ -15,8 +15,8 @@ function fillGallery(data) {
  * Fonction associative informations - Illustrations
  * @param index Index of the image you want to display
  */
-function showInformations(index) {
-  const project = publicData[index];
+function showInformations(index,project) {
+
   document.getElementById("image-selected-project").src = project["img"];
   document.getElementById("title-selected-project").innerHTML =
     project["title"];
@@ -35,4 +35,5 @@ function showInformations(index) {
       linksListElement.innerHTML += link;
     }
   }
+
 }
