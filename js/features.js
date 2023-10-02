@@ -2,12 +2,31 @@
  * Fonction d'ajout des images dans la section gallery
  */
 function fillGallery(data) {
+  let cpt = 0;
   data.forEach((element) => {
     var gallery = document.getElementById("gallery");
 
-    gallery.innerHTML += "<img class='slide' src='" + element["img"] + "'/>";
+    gallery.innerHTML += "<img id=" + cpt + " class='slide' src='" + element["img"] + "' />";
+
+    // Don't work 
+    // Ajout d'une icone sur les liens
+    element['links'].forEach((value, name) => {
+      switch (name) {
+        case "github":
+          document.getElementById(cpt).style.backgroundImage = "url(../icons/github.png)";
+          break;
+        default:
+          document.getElementById(cpt).style.backgroundImage = "url(../icons/github.png)";
+          break;
+
+      }
+    });
+    ///
+
+    cpt++;
   });
 }
+
 
 
 
@@ -15,7 +34,7 @@ function fillGallery(data) {
  * Fonction associative informations - Illustrations
  * @param index Index of the image you want to display
  */
-function showInformations(index,project) {
+function showInformations(project) {
 
   document.getElementById("image-selected-project").src = project["img"];
   document.getElementById("title-selected-project").innerHTML =

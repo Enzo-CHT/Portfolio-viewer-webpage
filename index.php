@@ -1,3 +1,21 @@
+<?php
+$dir = scandir("projects/");
+$response = array();
+for ($i = 2; $i < sizeof($dir); $i++) {
+  try {
+    $uri = "projects/" . $dir[$i];
+    $json_data = @file_get_contents($uri . "/infos.json");
+  } catch (Exception $e) {
+    echo "info.json not found";
+  }
+
+  $decoded_data = json_decode($json_data, true);
+  if ($decoded_data !== null) {
+    $response[] = $decoded_data;
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +29,18 @@
   <link rel="stylesheet" href="css/viewpoint.css" />
   <script src="js/features.js"></script>
   <script src="js/slidebar.js"></script>
+  <script>
+    publicData = <?php print_r(json_encode($response)) ?>;
+  </script>
+
 </head>
 
 <body>
   <main>
     <div>
       <section id="gallery" class="img-container img-container-width"></section>
-      <input type="button" name="" id="prevBtn" onclick="showSlide(-1)" value="<" />
-      <input type="button" name="" id="nextBtn" onclick="showSlide(1)" value=">" />
+      <input type="button" name="" id="prevBtn" onclick='showSlide(-1,publicData);' value="<" />
+      <input type="button" name="" id="nextBtn" onclick='showSlide(1,publicData);' value=">" />
     </div>
     <section id="infos" class="view view-width">
 
@@ -37,35 +59,10 @@
     </section>
   </main>
 </body>
-
 <script>
-  var publicData = // Récupération des infos liés aux projets
-    <?php
-    $dir = scandir("projects/");
-    $response = array();
-    for ($i = 2; $i < sizeof($dir); $i++) {
-      try {
-        $uri = "projects/" . $dir[$i];
-        $json_data = @file_get_contents($uri . "/infos.json");
-      } catch (Exception $e) {
-        echo "info.json not found";
-      }
-
-      $decoded_data = json_decode($json_data, true);
-      if ($decoded_data !== null) {
-        $response[] = $decoded_data;
-      }
-    }
-
-    print_r(json_encode($response));
-    ?>;
-
   fillGallery(publicData);
- 
-  
-
-
-
+  showSlide(0, publicData);
 </script>
+
 
 </html>

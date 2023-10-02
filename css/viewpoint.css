@@ -20,7 +20,7 @@ h3 {
   background-color: white;
   border-radius: 2%;
   top: 25vh;
-  left: 10vh;
+ 
   padding: 2%;
   border-radius: 50px;
   background: linear-gradient(145deg, #ffffff, #e6e6e6);
@@ -30,7 +30,6 @@ h3 {
 .view-width {
   width: 100vh;
   height: 35em;
-  left: 8%;
 }
 
 .illustration {
@@ -42,6 +41,7 @@ h3 {
 
 .description {
   position: relative;
+  top : -50px;
   left: 10%;
 }
 
@@ -121,6 +121,10 @@ h3 {
     top: 100px;
     width: 30%;
   
+  }
+
+  .description {
+    top : -15px;
   }
   
 

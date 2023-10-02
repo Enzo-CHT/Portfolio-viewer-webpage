@@ -1,22 +1,22 @@
-showSlide();
+
 
 /**
  * Fonction de changement de slide
  * Cette fonction permet de montrer le slide selectionner
  * @param {*} way : Direction du slide
  */
-function showSlide(way = 0) {
-  // Ajout d'une fonction de recupération d'info lié au slide ??
-  // Lien entre les infos et image ???
+function showSlide(way = 0, projects) {
+
 
   var slides = document.querySelectorAll(".slide");
 
   var index = 0;
   for (var i = 0; i < slides.length; i++) {
-    if (slides[i].id == "show") {
+    if (slides[i].classList.contains("show")) {
       index = i;
     }
-    slides[i].id = "";
+    slides[i].classList.remove("show");
+
   }
 
   var next = index + way;
@@ -27,12 +27,11 @@ function showSlide(way = 0) {
   }
 
   for (var i = 0; i < slides.length; i++) {
-    // Tous les slides sont des icon par défaut
 
     slides[i].classList.remove("left");
     slides[i].classList.remove("right");
     slides[i].classList.remove("centered");
-    slides[i].setAttribute('onclick', ''); // Add the onclick attribute here
+    slides[i].setAttribute('onclick', 'showSelectedSlide(this.id, publicData)'); // Add the onclick attribute here
 
 
     if (i < next) {
@@ -46,8 +45,9 @@ function showSlide(way = 0) {
     } else {
 
       // Si slide selectionner
-      slides[next].id = "show"
+      slides[next].classList.add("show");
       slides[next].classList.add("centered");
+      showInformations(projects[next]);
     }
 
 
@@ -55,4 +55,43 @@ function showSlide(way = 0) {
   }
 
 }
+
+/**
+ * Fonction d'affichage de l'image selectionner par l'utilisateur
+ * @param {*} index : index de l'image
+ * @param {*} projects : array des projects 
+ */
+function showSelectedSlide(index, projects) {
+  var slides = document.querySelectorAll(".slide");
+
+  for (var i = 0; i < slides.length; i++) {
+    slides[i].classList.remove("show");
+  }
+
+  for (var i = 0; i < slides.length; i++) {
+    // Tous les slides sont des icon par défaut
+
+    slides[i].classList.remove("left");
+    slides[i].classList.remove("right");
+    slides[i].classList.remove("centered");
+
+    if (i < index) {
+      // Si avant le slide selectionner
+      slides[i].classList.add("right");
+    } else if (i > index) {
+      // Si après le slide selectionner
+      slides[i].classList.add("left");
+    } else {
+      // Si slide selectionner
+      slides[index].classList.add("show");
+      slides[index].classList.add("centered");
+      showInformations(projects[index]);
+    }
+
+
+
+  }
+
+}
+
 
