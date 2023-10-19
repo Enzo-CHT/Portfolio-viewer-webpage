@@ -24,9 +24,8 @@ for ($i = 2; $i < sizeof($dir); $i++) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/gallery.css" />
-  <link rel="stylesheet" href="css/viewpoint.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <script src="js/features.js"></script>
   <script src="js/slidebar.js"></script>
   <script>
@@ -37,10 +36,11 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 
 <body>
   <main>
-    <div>
+
+    <div class=container>
+      <input type="button" class="next-btn" id="prevBtn" onclick='showSlide(-1,publicData);' value="&#x3c;" />
       <section id="gallery" class="img-container img-container-width"></section>
-      <input type="button" name="" id="prevBtn" onclick='showSlide(-1,publicData);' value="<" />
-      <input type="button" name="" id="nextBtn" onclick='showSlide(1,publicData);' value=">" />
+      <input type="button" class="next-btn" id="nextBtn" onclick='showSlide(1,publicData);' value="&#x3e;" />
     </div>
     <section id="infos" class="view view-width">
 
@@ -62,6 +62,7 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 <script>
   fillGallery(publicData);
   showSlide(0, publicData);
+ 
 </script>
 
 

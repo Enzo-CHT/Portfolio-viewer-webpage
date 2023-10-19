@@ -4,28 +4,21 @@
 function fillGallery(data) {
   let cpt = 0;
   data.forEach((element) => {
+
     var gallery = document.getElementById("gallery");
 
-    gallery.innerHTML += "<img id=" + cpt + " class='slide' src='" + element["img"] + "' />";
+    // Create a new image element
+    var imgElement = document.createElement("img");
+    imgElement.id = cpt;  // Set a unique ID for each image
+    imgElement.className = "slide";
+    imgElement.src = element["img"];
 
-    // Don't work 
-    // Ajout d'une icone sur les liens
-    element['links'].forEach((value, name) => {
-      switch (name) {
-        case "github":
-          document.getElementById(cpt).style.backgroundImage = "url(../icons/github.png)";
-          break;
-        default:
-          document.getElementById(cpt).style.backgroundImage = "url(../icons/github.png)";
-          break;
-
-      }
-    });
-    ///
+    gallery.appendChild(imgElement);
 
     cpt++;
   });
 }
+
 
 
 
@@ -42,15 +35,32 @@ function showInformations(project) {
   document.getElementById("description-selected-project").innerHTML =
     project["description"];
 
+  // Listes des liens lié au projet
   const linksObject = project["links"];
+
+  // Partie listant les liens sur la page
   const linksListElement = document.getElementById("links-list");
   linksListElement.innerHTML = "";
 
   for (const name in linksObject) {
     if (linksObject.hasOwnProperty(name)) {
       const value = linksObject[name];
+
+
+      var icon = "icons\\default.png"
+
+      // Choisi l'icon en foncton du nom (sensible à la casse)
+      switch (name) {
+        case "github":
+          icon = "icons\\github.png"
+          break;
+
+
+      }
+
+
       const link =
-        "<li class='links-element'><a href='" + value + "'>" + name + "</a></li>";
+        "<a class='links-element' href='" + value + "' > <img class=icon src='" + icon + "'  alt ='" + name + "'/></a>";
       linksListElement.innerHTML += link;
     }
   }

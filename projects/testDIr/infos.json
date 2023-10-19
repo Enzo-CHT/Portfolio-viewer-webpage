@@ -3,6 +3,6 @@
   "img": "projects/testDir/img.jpg",
   "description": "This is a description",
   "links": {
-    "github": "github.com"
+    "github": "https://github.com"
   }
 }
