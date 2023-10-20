@@ -1,11 +1,17 @@
 {
   "title": "Project 2023 08 29",
   "img": "projects/exemple/img.jpg",
-  "description": "Personal project used for my portfolio",
+  "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius veniam repellat eos fugiat commodi ipsam suscipit voluptatem a natus veritatis perspiciatis consequuntur sequi dicta, velit est ducimus illo quaerat, accusantium molestias deleniti, quo quia architecto. Perspiciatis deserunt reprehenderit dolores voluptas minima optio culpa vitae repudiandae sed, suscipit, dolore alias fuga.",
   "links": {
     "github": "https://github.com",
     "githu3": "https://github.com",
     "github3": "https://github.com",
     "github2": "https://github.com"
+  },
+  "categories": {
+    "Backend": 33,
+    "Frontend": 67,
+    "Réseaux": 50,
+    "Recherche": 100
   }
 }

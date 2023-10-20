@@ -54,8 +54,6 @@ function showInformations(project) {
         case "github":
           icon = "icons\\github.png"
           break;
-
-
       }
 
 
@@ -65,4 +63,66 @@ function showInformations(project) {
     }
   }
 
+
+  // Remplissage des catégories 
+  const categoriesObject = project['categories'];
+  const containerCategories = document.getElementById("container-categories");
+  containerCategories.innerHTML = ""; //Vide s'il en existe déjà
+
+  var stack = Array(); // Tableau des couleurs déjà utilisés
+  for (const name in categoriesObject) {
+    if (categoriesObject.hasOwnProperty(name)) {
+      ///
+      // Construction d'une catégorie
+      ///
+
+      const percentVariable = categoriesObject[name];
+      const percentageInPixel = (percentVariable / 100) * 250;
+      const hexCharacters = ['orange', 'blue', 'yellow', 'red', 'cyan', 'purple', 'green'];
+
+      // Sélection de la couleur pour la catégorie en construction
+      var hexColor = "";
+      do {
+        hexColor = hexCharacters[Math.floor(Math.random() * hexCharacters.length)];
+      } while ((stack.includes(hexColor)))
+      stack.push(hexColor); // Ajout aux couleurs déjà utilisés
+
+      // Création de la balise <li>
+      var line = document.createElement("li");
+
+      // Ajout de la légende 
+      var legend = document.createElement("span");
+      legend.className = "legend";
+      legend.innerHTML = name;
+      legend.style.backgroundColor = hexColor;
+      line.appendChild(legend);
+
+      // Ajout du la barre de progession
+      var percentBar = document.createElement("span");
+      percentBar.className = "percent-bar";
+      percentBar.style.width = percentageInPixel + "px";
+
+
+      percentBar.style.backgroundColor = hexColor;
+
+      // Affichage du pouventage devant la barre 
+      var percentValue = document.createElement("span");
+      percentValue.innerHTML = percentVariable + "%";
+      percentValue.style.color = "black";
+      percentValue.style.position = "relative";
+      percentValue.style.top = "-8px";
+      percentValue.style.left = "-45px";
+
+      percentBar.appendChild(percentValue);
+
+      line.appendChild(percentBar);
+
+      containerCategories.appendChild(line);
+      // Fin création balise <li>
+
+    }
+  }
+
 }
+
+

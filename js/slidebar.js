@@ -53,7 +53,7 @@ function showSlide(way = 0, projects) {
       // Calcul la position de l'image sélectionné 
       var slideWidth = slides[next].offsetWidth;
       var containerWidth = container.offsetWidth;
-      console.log(slideWidth, containerWidth);
+     
       var scrollLeft = (next * slideWidth) - (containerWidth / 2) + (slideWidth / 2);
 
       // Scroll vers l'image
@@ -111,7 +111,7 @@ function showSelectedSlide(index, projects) {
       // Calcul la position de l'image sélectionné 
       var slideWidth = slides[index].offsetWidth;
       var containerWidth = container.offsetWidth;
-      console.log(slideWidth, containerWidth);
+      
       var scrollLeft = (index * slideWidth) - (containerWidth / 2) + (slideWidth / 2);
 
       // Scroll vers l'image

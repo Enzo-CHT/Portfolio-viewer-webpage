@@ -23,7 +23,6 @@ for ($i = 2; $i < sizeof($dir); $i++) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="css/gallery.css" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/features.js"></script>
@@ -43,18 +42,23 @@ for ($i = 2; $i < sizeof($dir); $i++) {
       <input type="button" class="next-btn" id="nextBtn" onclick='showSlide(1,publicData);' value="&#x3e;" />
     </div>
     <section id="infos" class="view view-width">
-
-      <img class="illustration" src="" alt="image-selected-project" id="image-selected-project" />
-      <h3 id="title-selected-project"></h3>
-      <div class="description">
-        <p id="description-selected-project"></p>
+      <div class="top">
+        <img class="illustration" src="" alt="image-selected-project" id="image-selected-project" />
+        <aside>
+          <h3 id="title-selected-project"></h3>
+          <ul id="container-categories" class="categories"></ul>
+        </aside>
       </div>
-      <div>
-        <ul id="links-list" class="links-list">
+      <div class="bottom">
+        <div class="description">
+          <p id="description-selected-project"></p>
+        </div>
+        <div>
+          <ul id="links-list" class="links-list">
 
-        </ul>
+          </ul>
+        </div>
       </div>
-
 
     </section>
   </main>
@@ -62,8 +66,27 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 <script>
   fillGallery(publicData);
   showSlide(0, publicData);
- 
+
+  
+  var container = document.querySelector(".img-container");
+
+  container.addEventListener("wheel", function(event) {
+    // Calculate the new scroll position
+    var scrollAmount = event.deltaY;
+    var currentScrollLeft = container.scrollLeft;
+    var newScrollLeft = currentScrollLeft + scrollAmount;
+
+    // Smoothly scroll to the new position
+    container.scrollTo({
+      left: newScrollLeft,
+      behavior: "smooth" // Add smooth scrolling
+    });
+
+    // Prevent the default scrolling behavior
+    event.preventDefault();
+  });
 </script>
+
 
 
 </html>
