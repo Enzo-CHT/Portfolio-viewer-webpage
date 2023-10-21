@@ -1,4 +1,11 @@
+:root {
+  --orange: orange;
+  --image-frame : rgb(56, 56, 56);
+}
+
+
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@600&display=swap");
+
 
 /** SANS CHANGEMENT EN FONCTION DE LA FENETRE**/
 main {
@@ -17,7 +24,14 @@ section {
 aside {
   position: relative;
   width: 100%;
+  margin: 0 0 0 30px;
   min-width: 50vh;
+}
+
+@media (max-width:85vh) {
+  aside {
+    margin: 30px 0 0 0;
+  }
 }
 
 .container {
@@ -131,7 +145,12 @@ h3 {
   width: 250px;
   height: 250px;
   transition: 0.5s;
+
+  box-shadow:
+    -50px -50px 0 -40px var(--image-frame),
+    50px 50px 0 -40px var(--image-frame);
 }
+
 
 @media (max-width: 85vh) {
   .illustration {
@@ -199,7 +218,7 @@ h3 {
   width: 100%;
   height: 23px;
   justify-content: space-between;
-  padding: 2px 15px;
+  padding: 2px 0;
 
 }
 
@@ -215,6 +234,9 @@ h3 {
   border-radius: 9px;
   color: white;
   width: 65px;
+
+  box-shadow: inset 1px 1px 85px -68px rgba(66, 68, 90, 1);
+  box-shadow: 1px 1px 17px -10px rgba(66, 68, 90, 1);
 
 }
 

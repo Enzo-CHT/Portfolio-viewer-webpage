@@ -78,7 +78,7 @@ function showInformations(project) {
 
       const percentVariable = categoriesObject[name];
       const percentageInPixel = (percentVariable / 100) * 250;
-      const hexCharacters = ['orange', 'blue', 'yellow', 'red', 'cyan', 'purple', 'green'];
+      const hexCharacters = ['#c5000a', '	#ef8200', '#fef200', '#1fc600', '#2516c1'];
 
       // Sélection de la couleur pour la catégorie en construction
       var hexColor = "";
