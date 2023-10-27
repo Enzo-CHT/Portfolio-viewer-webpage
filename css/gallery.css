@@ -46,11 +46,16 @@
 }
 
 .slide {
-  border-radius: 50%;
+  border-radius: 20%;
   padding: 15px;
   width: 100px;
   height: 100px;
 
+}
+
+.slide:hover {
+  opacity: 0.6;
+  transition: scale 1s, padding 1s;
 }
 
 

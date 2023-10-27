@@ -81,19 +81,21 @@ function showInformations(project) {
       const hexCharacters = ['#c5000a', '	#ef8200', '#fef200', '#1fc600', '#2516c1'];
 
       // Sélection de la couleur pour la catégorie en construction
-      var hexColor = "";
+      var hexColor = "#999999";
+      /*
       do {
         hexColor = hexCharacters[Math.floor(Math.random() * hexCharacters.length)];
-      } while ((stack.includes(hexColor)))
-      stack.push(hexColor); // Ajout aux couleurs déjà utilisés
+      } while ((stack.includes(hexColor)))*/
+      //stack.push(hexColor); // Ajout aux couleurs déjà utilisés
 
       // Création de la balise <li>
       var line = document.createElement("li");
 
       // Ajout de la légende 
-      var legend = document.createElement("span");
+      var legend = document.createElement("input");
+      legend.type = "button";
       legend.className = "legend";
-      legend.innerHTML = name;
+      legend.value = name;
       legend.style.backgroundColor = hexColor;
       line.appendChild(legend);
 
