@@ -46,6 +46,8 @@ for ($i = 2; $i < sizeof($dir); $i++) {
         <img class="illustration" src="" alt="image-selected-project" id="image-selected-project" />
         <aside>
           <h3 id="title-selected-project"></h3>
+          <p class="display-date" id="date-selected-project"></p>
+
           <ul id="container-categories" class="categories"></ul>
         </aside>
       </div>
@@ -61,7 +63,10 @@ for ($i = 2; $i < sizeof($dir); $i++) {
       </div>
 
     </section>
+    <section></section>
+   
   </main>
+  
 </body>
 <script>
   fillGallery(publicData);

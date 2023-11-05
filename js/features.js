@@ -1,5 +1,6 @@
 /**
  * Fonction d'ajout des images dans la section gallery
+ *
  */
 function fillGallery(data) {
   let cpt = 0;
@@ -32,6 +33,7 @@ function showInformations(project) {
   document.getElementById("image-selected-project").src = project["img"];
   document.getElementById("title-selected-project").innerHTML =
     project["title"];
+  document.getElementById("date-selected-project").innerHTML = project["date"];
   document.getElementById("description-selected-project").innerHTML =
     project["description"];
 
@@ -78,15 +80,24 @@ function showInformations(project) {
 
       const percentVariable = categoriesObject[name];
       const percentageInPixel = (percentVariable / 100) * 250;
-      const hexCharacters = ['#c5000a', '	#ef8200', '#fef200', '#1fc600', '#2516c1'];
+      const hexCharacters = ['#23295c', '	#23295c'];
+      const hexInterval = 1; // Interval entre les couleurs
+
+      var hexColor = "black";
+      var i = 0;
+      do {
+        if (stack.length >= hexInterval) {
+          stack = Array();
+          console.log("reset");
+        }
+        hexColor = hexCharacters[i];
+        console.log(hexColor);
+        i++;
+      } while (stack.includes(hexColor))
+      stack.push(hexColor)
+
 
       // Sélection de la couleur pour la catégorie en construction
-      var hexColor = "#999999";
-      /*
-      do {
-        hexColor = hexCharacters[Math.floor(Math.random() * hexCharacters.length)];
-      } while ((stack.includes(hexColor)))*/
-      //stack.push(hexColor); // Ajout aux couleurs déjà utilisés
 
       // Création de la balise <li>
       var line = document.createElement("li");
@@ -110,6 +121,7 @@ function showInformations(project) {
       // Affichage du pouventage devant la barre 
       var percentValue = document.createElement("span");
       percentValue.innerHTML = percentVariable + "%";
+      percentValue.classList += "percentValue";
       percentValue.style.color = "black";
       percentValue.style.position = "relative";
       percentValue.style.top = "-8px";

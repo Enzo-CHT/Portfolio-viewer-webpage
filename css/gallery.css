@@ -1,6 +1,6 @@
 :root {
   --white: rgb(255, 255, 255);
-  --black: black;
+  --arrows: #090446;
   --black-hover: rgba(0, 0, 0, 0.326);
   --red: red;
 }
@@ -87,7 +87,7 @@
   font-size: 30px;
   font-weight: 800;
 
-  color: var(--black);
+  color: var(--arrows);
 }
 
 .next-btn:hover {
