@@ -110,6 +110,7 @@ function showInformations(project) {
       legend.style.backgroundColor = hexColor;
       line.appendChild(legend);
 
+      
       // Ajout du la barre de progession
       var percentBar = document.createElement("span");
       percentBar.className = "percent-bar";
@@ -123,12 +124,13 @@ function showInformations(project) {
       percentValue.innerHTML = percentVariable + "%";
       percentValue.classList += "percentValue";
       percentValue.style.color = "black";
-      percentValue.style.position = "relative";
-      percentValue.style.top = "-8px";
-      percentValue.style.left = "-45px";
+      //percentValue.style.position = "relative";
+      //percentValue.style.top = "-8px";
+      percentValue.style.right =  (43 + (percentVariable/15)) +"px";
 
       percentBar.appendChild(percentValue);
-
+    
+    
       line.appendChild(percentBar);
 
       containerCategories.appendChild(line);

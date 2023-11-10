@@ -50,6 +50,7 @@ aside {
   background-color: white;
   display: block;
   justify-content: center;
+  align-items: stretch;
 
   border-radius: 2%;
   top: 25vh;
@@ -252,7 +253,6 @@ h3 {
   height: 23px;
   justify-content: space-between;
   padding: 0.5% 0;
-
 }
 
 .categories .legend {
@@ -282,7 +282,10 @@ h3 {
 }
 
 .percentValue {
+  position: relative;
   font-weight: 600;
+ 
+  top : -7px;
 }
 
 
@@ -300,7 +303,7 @@ h3 {
   height: 1px;
   max-width: 250px;
   animation-name: loadPercentBar;
-  animation-duration: 5s;
+  animation-duration: 3s;
 
 }
 
