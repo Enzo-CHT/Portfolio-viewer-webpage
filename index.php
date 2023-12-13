@@ -27,7 +27,6 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 
   }
 
-  print_r($response);
 }
 
 ?>
