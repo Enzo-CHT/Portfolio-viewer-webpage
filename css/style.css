@@ -68,8 +68,9 @@ aside {
 .icons {
   position: relative;
   width: 10px;
+  height: 10px;
   top: 3.5px;
-  left: 7.25px;
+  left: 0.468em;
 }
 
 .view {

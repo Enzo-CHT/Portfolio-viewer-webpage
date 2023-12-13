@@ -35,7 +35,7 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 
 <body>
   <main>
-    <a href="../" class="button quit">
+    <a href="../" class="button">
       <img class='icons' src="icons/close.png">
     </a>
     <div class=container>
