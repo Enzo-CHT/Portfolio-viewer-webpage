@@ -13,6 +13,7 @@ function fillGallery(data) {
     imgElement.id = cpt;  // Set a unique ID for each image
     imgElement.className = "slide";
     imgElement.src = element["img"];
+    
 
     gallery.appendChild(imgElement);
 
