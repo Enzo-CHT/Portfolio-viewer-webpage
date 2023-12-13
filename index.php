@@ -35,7 +35,9 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 
 <body>
   <main>
-
+    <a href="../" class="button quit">
+      <img class='icons' src="icons/close.png">
+    </a>
     <div class=container>
       <input type="button" class="next-btn" id="prevBtn" onclick='showSlide(-1,publicData);' value="&#x3c;" />
       <section id="gallery" class="img-container img-container-width"></section>
@@ -64,15 +66,15 @@ for ($i = 2; $i < sizeof($dir); $i++) {
 
     </section>
     <section></section>
-   
+
   </main>
-  
+
 </body>
 <script>
   fillGallery(publicData);
   showSlide(0, publicData);
 
-  
+
   var container = document.querySelector(".img-container");
 
   container.addEventListener("wheel", function(event) {

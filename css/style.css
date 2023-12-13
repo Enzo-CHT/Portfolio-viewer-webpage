@@ -1,6 +1,8 @@
 :root {
   --image-frame: rgb(56, 56, 56);
   --title: black;
+  --blue: #090446;
+  --blue_hover:#221a6d;
 }
 
 
@@ -42,8 +44,33 @@ aside {
   padding: 0 100px;
 }
 
+.button {
+  position: absolute;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: none;
+
+  top : 0;
+  right: 0;
+
+  background-color: var(--blue);
+  color: white;
+
+}
 
 
+
+.button:hover {
+  background-color: var(--blue_hover);
+}
+
+.icons {
+  position: relative;
+  width: 10px;
+  top: 3.5px;
+  left: 7.25px;
+}
 
 .view {
   position: absolute;
