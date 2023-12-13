@@ -9,25 +9,10 @@ for ($i = 2; $i < sizeof($dir); $i++) {
     echo "info.json not found";
   }
 
-  
   $decoded_data = json_decode($json_data, true);
-
- 
-  
-
-
   if ($decoded_data !== null) {
-
-    // Ajout d'une image par défaut si aucune image n'est trouvée.
-    if (!file_exists($decoded_data['img'])) {
-      $decoded_data['img'] = "icons/noImage.jpg";
-    }
-
     $response[] = $decoded_data;
-
   }
-
-  print_r($response);
 }
 
 ?>
